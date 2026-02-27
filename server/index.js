@@ -13,14 +13,14 @@ const allowedOrigin = process.env.CLIENT_URL || 'http://localhost:5173';
 
 const io = new Server(server, {
   cors: {
-    origin: allowedOrigin,
+    origin: "*",
     credentials: true
   }
 });
 
 app.use(
   cors({
-    origin: allowedOrigin,
+    origin: "*",
     credentials: true
   })
 );
