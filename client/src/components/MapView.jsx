@@ -17,13 +17,11 @@ L.Icon.Default.mergeOptions({
 
 function FocusBus({ bus }) {
   const map = useMap();
-
   useEffect(() => {
     if (bus && typeof bus.lat === 'number' && typeof bus.lng === 'number') {
       map.flyTo([bus.lat, bus.lng], Math.max(map.getZoom(), 15), { duration: 0.9 });
     }
   }, [bus, map]);
-
   return null;
 }
 
@@ -32,7 +30,12 @@ export default function MapView({ buses, focusedBusNumber }) {
   const focusedBus = focusedBusNumber ? buses[focusedBusNumber] : null;
 
   return (
-    <MapContainer center={DEFAULT_CENTER} zoom={13} className="map-container">
+    <MapContainer
+      center={DEFAULT_CENTER}
+      zoom={13}
+      // ↓ This is the fix — explicit pixel height, no CSS class dependency
+      style={{ height: '100%', width: '100%' }}
+    >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <FocusBus bus={focusedBus} />
       {markers.map(([busNumber, bus]) => (

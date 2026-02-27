@@ -48,7 +48,7 @@ export default function AdminLogin() {
           {/* Header */}
           <div className="flex flex-col gap-1">
             <div className="w-11 h-11 rounded-xl bg-blue-400/10 flex items-center justify-center text-2xl mb-2">🛠️</div>
-            <h1 className="text-2xl font-extrabold text-white" style={{ fontFamily: "'Outfit', sans-serif" }}>Admin Login</h1>
+            <h1 className="text-2xl font-extrabold text-white" style={{ fontFamily: "'Syne', sans-serif" }}>Admin Login</h1>
             <p className="text-white/40 text-sm">Access the fleet management dashboard.</p>
           </div>
 
